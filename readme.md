@@ -6,7 +6,7 @@ This script writes a new pdf file from an existing one, applying a rotation to e
 
 Usage :
 
-```rotatePdf.py [-h] [-angle ANGLE] [-direction DIRECTION] input output```
+```python rotatePdf.py [-h] [-angle ANGLE] [-direction DIRECTION] input output```
 
 positional arguments: <br/>
 &emsp;**input** &nbsp;&nbsp; &emsp; Input pdf file <br/>
