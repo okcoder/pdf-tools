@@ -15,6 +15,6 @@ positional arguments: <br/>
 
 optional arguments: <br/>
 &emsp;**-h, --help** &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; show this help message and exit <br/> 
-&emsp;**-angle ANGLE** &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;           Rotation angle <br/>
-&emsp;**-direction DIRECTION** &emsp;                                 One of 'clockwise' or 'counterclockwise'
+&emsp;**-angle ANGLE** &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;           Rotation angle. Default is _90°_. <br/>
+&emsp;**-direction DIRECTION** &emsp;                                 One of _clockwise_ or _counterclockwise_. Default is _counterclockwise_.
 
