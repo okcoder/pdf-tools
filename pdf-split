@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file=$1
+tmp_file=/tmp/`uuidgen`.pdf
+rotatePdf.py $file $tmp_file
+cp $file $tmp_file.bak
+splitPdf.py $tmp_file $file
+rm $tmp_file
+echo $file done.

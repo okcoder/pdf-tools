@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!/usr/local/bin/python3
 import sys
 import argparse
+from io import FileIO as file
 
 parser = argparse.ArgumentParser()
 
@@ -18,7 +19,7 @@ if args.pages != "all":
     PAGES = True
     pages = sorted(eval(args.pages))
 
-from pyPdf import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfFileWriter, PdfFileReader
 inFile = PdfFileReader(file(args.input, "rb"))
 outFile = PdfFileWriter()
 

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+file=$1
+tmp_file=/tmp/`uuidgen`.pdf
+
+rotatePdf.py $file $tmp_file
+
+mv $file $tmp_file.bak
+mv $tmp_file $file
+
+echo $file done.
