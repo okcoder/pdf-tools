@@ -32,8 +32,10 @@ pip3 install PyPDF2
 sudo midkr -p /opt/pdf-tools
 sudo cp rotatePdf.py /opt/pdf-tools/
 sudo cp splitPdf.py /opt/pdf-tools/
+sudo cp combinePdf.py /opt/pdf-tools/
 sudo cp pdf-rotate-left /opt/pdf-tools/
 sudo cp pdf-split /opt/pdf-tools/
+sudo cp pdf-combine /opt/pdf-tools/
 echo 'export PATH=$PATH:/opt/pdf-tools/'>>~/.zshrc
 ```
 
