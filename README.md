@@ -29,7 +29,7 @@ okcoder@MacBook-Pro ~ %
 ```
 brew install python
 pip3 install PyPDF2
-sudo midkr -p /opt/pdf-tools
+sudo mkdir -p /opt/pdf-tools
 sudo cp rotatePdf.py /opt/pdf-tools/
 sudo cp splitPdf.py /opt/pdf-tools/
 sudo cp combinePdf.py /opt/pdf-tools/
