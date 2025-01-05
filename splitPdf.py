@@ -7,7 +7,7 @@ import argparse
 from io import FileIO as file
 import copy
 import math
-from PyPDF2 import PdfFileReader, PdfFileWriter
+from pypdf import PdfReader, PdfWriter
 
 parser = argparse.ArgumentParser()
 
@@ -21,16 +21,16 @@ def split_pages():
     src_f = file(args.input, 'r+b')
     dst_f = file(args.output, 'w+b')
 
-    input = PdfFileReader(src_f)
-    output = PdfFileWriter()
+    input = PdfReader(src_f)
+    output = PdfWriter()
 
-    for i in range(input.getNumPages()):
-        p = input.getPage(i)
+    for i in range(len(input.pages)):
+        p = input.pages[i]
         q = copy.copy(p)
-        q.mediaBox = copy.copy(p.mediaBox)
+        q.mediabox = copy.copy(p.mediabox)
 
-        x1, x2 = p.mediaBox.lowerLeft
-        x3, x4 = p.mediaBox.upperRight
+        x1, x2 = p.mediabox.lower_left
+        x3, x4 = p.mediabox.upper_right
 
         x1, x2 = math.floor(x1), math.floor(x2)
         x3, x4 = math.floor(x3), math.floor(x4)
@@ -38,33 +38,32 @@ def split_pages():
 
         if x3 > x4:
             # horizontal
-            p.mediaBox.upperRight = (x5, x4)
-            p.mediaBox.lowerLeft = (x1, x2)
+            p.mediabox.upper_right = (x5, x4)
+            p.mediabox.lower_left = (x1, x2)
 
-            q.mediaBox.upperRight = (x3, x4)
-            q.mediaBox.lowerLeft = (x5, x2)
+            q.mediabox.upper_right = (x3, x4)
+            q.mediabox.lower_left = (x5, x2)
         else:
             # vertical
-            p.mediaBox.upperRight = (x3, x4)
-            p.mediaBox.lowerLeft = (x1, x6)
+            p.mediabox.upper_right = (x3, x4)
+            p.mediabox.lower_left = (x1, x6)
 
-            q.mediaBox.upperRight = (x3, x6)
-            q.mediaBox.lowerLeft = (x1, x2)
+            q.mediabox.upper_right = (x3, x6)
+            q.mediabox.lower_left = (x1, x2)
 
 
-        p.artBox = p.mediaBox
-        p.bleedBox = p.mediaBox
-        p.cropBox = p.mediaBox
+        p.artbox = p.mediabox
+        p.bleedbox = p.mediabox
+        p.cropbox = p.mediabox
 
-        q.artBox = q.mediaBox
-        q.bleedBox = q.mediaBox
-        q.cropBox = q.mediaBox
+        q.artbox = q.mediabox
+        q.bleedbox = q.mediabox
+        q.cropbox = q.mediabox
 
-        output.insertPage(q,i)
-        output.insertPage(p,i+(i+1)%2)
+        output.insert_page(q,i)
+        output.insert_page(p,i+(i+1)%2)
 
-    output.write(dst_f)
-    src_f.close()
-    dst_f.close()
+    with open(args.output, 'wb') as dst_f:
+        output.write(dst_f)
 
 split_pages()

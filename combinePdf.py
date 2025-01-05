@@ -10,14 +10,13 @@ parser.add_argument("pdfs", nargs='+', help="Input pdf file")
 
 args = parser.parse_args()
 
-from PyPDF2 import PdfFileMerger
-merger = PdfFileMerger()
+from pypdf import PdfMerger
+merger = PdfMerger()
 
 for pdf in args.pdfs:
     print(pdf)
     merger.append(pdf)
 
-print("write to "+args.output)
+print("write to " + args.output)
 merger.write(args.output)
 merger.close()
-
