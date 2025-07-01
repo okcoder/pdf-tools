@@ -32,6 +32,7 @@ sudo mkdir -p /opt/pdf-tools
 sudo cp rotatePdf.py /opt/pdf-tools/
 sudo cp splitPdf.py /opt/pdf-tools/
 sudo cp combinePdf.py /opt/pdf-tools/
+sudo cp merge.py /opt/pdf-tools/pdf-merge.py
 sudo cp pdf-rotate-left /opt/pdf-tools/
 sudo cp pdf-split /opt/pdf-tools/
 sudo cp pdf-combine /opt/pdf-tools/
